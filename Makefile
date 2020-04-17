@@ -1,4 +1,4 @@
-CHART_REPO := gs://jenkinsxio-labs/charts
+CHART_REPO := gs://jenkinsxio-labs-private/charts
 NAME := jenkins-x-crds
 
 build: clean
@@ -13,5 +13,6 @@ release: clean
 	helm lint
 	helm package .
 	helm repo add jx-labs $(CHART_REPO)
-	helm gcs push ${NAME}*.tgz jx-labs --public
+	# helm gcs push ${NAME}*.tgz jx-labs --public
+	helm gcs push ${NAME}*.tgz jx-labs
 	rm -rf ${NAME}*.tgz%
