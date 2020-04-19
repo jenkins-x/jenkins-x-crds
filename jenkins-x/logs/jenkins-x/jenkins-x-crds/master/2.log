@@ -1,0 +1,34 @@
+
+Showing logs for build [32mjenkins-x-jenkins-x-crds-master-z7r2j-2[0m stage [32mchart[0m and container [32mstep-credential-initializer-5vd8v[0m
+{"level":"warn","ts":1587282177.4914412,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1587282177.5236092,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjenkins-x-jenkins-x-crds-master-z7r2j-2[0m stage [32mchart[0m and container [32mstep-working-dir-initializer-6lvlv[0m
+{"level":"warn","ts":1587282180.7431023,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1587282180.8779688,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjenkins-x-jenkins-x-crds-master-z7r2j-2[0m stage [32mchart[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjenkins-x-jenkins-x-crds-master-z7r2j-2[0m stage [32mchart[0m and container [32mstep-git-source-jenkins-x-jenkins-x-crds-master-z7r2j-6wsbp[0m
+{"level":"warn","ts":1587282197.637887,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1587282200.2761192,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/jenkins-x/jenkins-x-crds.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mjenkins-x-jenkins-x-crds-master-z7r2j-2[0m stage [32mchart[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:e6f5dc714ba0ca452c486a7c2de151fdcda5e8ca
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mjenkins-x-jenkins-x-crds-master-z7r2j-2[0m stage [32mchart[0m and container [32mstep-release[0m
+rm -rf charts
+rm -rf jenkins-x-crds*.tgz
+sed -i -e "s/version:.*/version: 0.0.1/" Chart.yaml
+helm lint
+==> Linting .
+
+1 chart(s) linted, 0 chart(s) failed
+helm package .
+Successfully packaged chart and saved it to: /workspace/source/jenkins-x-crds-0.0.1.tgz
+helm repo add **-labs gs://jenkinsxio-labs-private/charts
+"**-labs" has been added to your repositories
+# helm gcs push jenkins-x-crds*.tgz **-labs --public
+helm gcs push jenkins-x-crds*.tgz **-labs
+rm -rf jenkins-x-crds*.tgz%
