@@ -2,3 +2,6 @@
 # lets allow the schedular validation YAML to be disabled
 # as its huge and can fail to install using `kubectl apply`
 enableSchedulerValidation: true
+
+jxRequirements:
+  secretStorage: vault
