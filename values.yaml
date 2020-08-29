@@ -3,5 +3,5 @@
 # as its huge and can fail to install using `kubectl apply`
 enableSchedulerValidation: true
 
-jxRequirements:
-  secretStorage: vault
+# to enable local external secrets
+localExternalSecrets: false
